@@ -3,7 +3,7 @@
 Button = Rectangle:extend()
 
 function Button:new(x, y, w, h, text, color, f)
-  Button.super.new(self, x, y, w, h, "fill", color, 25, 25)
+  Button.super.new(self, x, y, w, h, "fill", color, 5, 5)
   self.text = text or "weird"
   self.f = f
 end

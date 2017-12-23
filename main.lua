@@ -11,21 +11,21 @@ function love.load()
   tick = require "tick"
   Object = require "classic"
   require "shape"
-  require "rectangle"
+  require "animShape"
   require "animRectangle"
+  require "rectangle"
   require "button"
   require "keyframe"
   window_height = love.graphics.getHeight()
   window_width = love.graphics.getWidth()
   myImage = love.graphics.newImage("images/sheep.png")
-  r1 = AnimRectangle()
   table.insert(buttons,
    Button(50, 100, window_width/10, window_height/20, "test", "FAFAFA", function () inputOn = not inputOn end))
 
   table.insert(mykeys, Keyframe(1, 150, 200, math.pi))
   table.insert(mykeys, Keyframe(2, 150, 200, 0))
   table.insert(mykeys, Keyframe(4, 150, 200, math.pi))
-  r2 = AnimRectangle("fill", mykeys)
+  r2 = AnimRectangle(30, 30, "fill", mykeys)
 end
 
 function love.textinput(t)
@@ -49,7 +49,6 @@ end
 
 function love.update(dt)
   mouse_x, mouse_y = love.mouse.getPosition()
-  r1:update(dt)
   r2:animate(dt)
   for i,rect in ipairs(rects) do
     rect:update(dt)
@@ -58,8 +57,6 @@ end
 
 function love.draw()
   love.graphics.setBackgroundColor(100, 100, 100)
-  love.graphics.print(r2.keys[3].t, 300, 200)
-  r1:draw()
   r2:draw()
   for i,button in ipairs(buttons) do
     button:draw()
