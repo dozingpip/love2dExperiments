@@ -2,6 +2,7 @@ function love.conf(t)
   t.window.title = "Test"
   t.window.icon = "images/sheep.png"
   t.version = "0.10.2"
+  t.console = true
   t.releases = {
    title = "love2dExperiments",              -- The project title (string)
    package = nil,            -- The project command and package name (string)
