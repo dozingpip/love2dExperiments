@@ -1,4 +1,4 @@
-function ink(hex)
+function setColor(hex)
 	--convert hexadecimal (accepts 6 or 8 characters)
 	local function convertHex(hex)
 		local splitToRGB = {}

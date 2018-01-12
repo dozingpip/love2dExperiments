@@ -11,5 +11,8 @@ function Rectangle:new(x, y, w, h, mode, color, rx, ry)
 end
 
 function Rectangle:draw()
+  love.graphics.push()
+  Rectangle.super.draw(self)
   love.graphics.rectangle(self.mode, 0, 0, self.width, self.height, self.rx, self.ry)
+  love.graphics.pop()
 end

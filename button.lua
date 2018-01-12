@@ -1,18 +1,17 @@
 --! file: button.lua
 
 Button = Rectangle:extend()
-
+require "text"
 function Button:new(x, y, w, h, text, color, f)
   Button.super.new(self, x, y, w, h, "fill", color, 5, 5)
-  self.text = text or "weird"
+  self.text = Text(x, y, text)
   self.f = f
 end
 
 function Button:draw()
   love.graphics.push()
   Button.super.draw(self)
-  ink("black")
-  love.graphics.print(self.text, 0, 0)
+  self.text:draw()
   love.graphics.pop()
 end
 
