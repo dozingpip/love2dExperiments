@@ -23,19 +23,15 @@ function love.load()
 
   local animSet = {
     walk = {
-      coords = {
-        start = {0, 16},
-        ["end"] = {96, 16}
-      },
-      duration = 3,
+      frames = '1-7',
+      row = 1,
+      durations = 0.1,
       loop = true
     },
     idle = {
-      coords = {
-        start = {48, 32},
-        ["end"] = {96, 48}
-      },
-      duration = 2,
+      frames = '5-6',
+      row = 3,
+      durations = 1,
       loop = true
     }
   }
@@ -74,7 +70,7 @@ function love.draw()
     button:draw()
   end
   bodyTest:draw()
-  
+
   if(inputOn) then
     love.graphics.printf(text, buttons[1].x, buttons[1].y+buttons[1].height,
       love.graphics.getWidth())
@@ -96,6 +92,8 @@ function love.keypressed(key)
       end
     elseif key =="space" then
       rects.createRect()
+    elseif key =="d" then
+      --bodyTest:
     end
 
     if key== "escape" then
