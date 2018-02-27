@@ -36,8 +36,8 @@ function love.load()
     }
   }
 
-  bodyTest = Body(
-    200, 100, 16, 16, "images/greenBot.png", animSet)
+  --bodyTest = Body(
+  --  200, 100, 16, 16, "images/greenBot.png", animSet)
 end
 
 function love.textinput(t)
@@ -61,7 +61,7 @@ end
 
 function love.update(dt)
   mouse_x, mouse_y = love.mouse.getPosition()
-  bodyTest:update(dt)
+  --bodyTest:update(dt)
 end
 
 function love.draw()
@@ -69,7 +69,10 @@ function love.draw()
   for i,button in ipairs(buttons) do
     button:draw()
   end
-  bodyTest:draw()
+
+  for i, rect in ipairs(rects) do
+    rect:draw()
+  end
 
   if(inputOn) then
     love.graphics.printf(text, buttons[1].x, buttons[1].y+buttons[1].height,
@@ -106,5 +109,5 @@ function love.keypressed(key)
 end
 
 function rects.createRect()
-  table.insert(rects,AnimRectangle())
+  table.insert(rects, Rectangle())
 end
